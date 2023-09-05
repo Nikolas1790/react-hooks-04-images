@@ -20,13 +20,12 @@ export class App extends Component {
     totalImg: null,    
     }
 
-      componentDidUpdate(prevProps, prevState) {        
-        if(this.state.query !== prevState.query ){
+  componentDidUpdate(prevProps, prevState) {        
+      if(this.state.query !== prevState.query ){
           this.setState({ loader: true})
           
           getImages(this.state.query, this.state.page)
-         .then(({hits, totalHits}) => {
-          
+         .then(({hits, totalHits}) => {          
           if(hits.length === 0){
             return toast.error('Not a valid request');
           }
@@ -34,10 +33,10 @@ export class App extends Component {
          .catch(error => this.setState({error}))
          .finally(() => this.setState({loader: false}));
          return;
-        }
+      }
 
 
-        if (prevState.query !== this.state.query || prevState.page !== this.state.page){
+      if (prevState.query !== this.state.query || prevState.page !== this.state.page){
           this.setState({ loader: true})
 
           getImages(this.state.query, this.state.page)
@@ -45,8 +44,8 @@ export class App extends Component {
             this.setState({ images: [...prevState.images, ...hits]})})
           .catch(error => this.setState({error}))
           .finally(() => this.setState({loader: false}))                   
-        }      
-       }     
+      }      
+    }     
       
 
     handleLoaderMore = () => {
@@ -57,9 +56,9 @@ export class App extends Component {
     }
   
   render(){
-    const {images, loader, totalImg, error, page } = this.state
+      const {images, loader, totalImg, error, page } = this.state
   return (
-    <AppStyled>
+      <AppStyled>
       
       <Searchbar onSubmit={this.formSubmitHendle}/>        
       {error && <p><b>Error. Try again later</b></p>}

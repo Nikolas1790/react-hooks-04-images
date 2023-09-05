@@ -16,7 +16,7 @@ export class ImageGalleryItem extends Component {
         const { webformatURL, largeImageURL, tags } = this.props.img;
     return (
         <>            
-      <ImageGalleryOne className="gallery-item" onClick={this.toggleModal} >
+            <ImageGalleryOne className="gallery-item" onClick={this.toggleModal} >
                 <ImageGalleryOneImg src={webformatURL} alt={tags}/>
             </ImageGalleryOne>
             {this.state.showModal && <Modal onClose={this.toggleModal} alt={tags} largeImageURL={largeImageURL}/>}
