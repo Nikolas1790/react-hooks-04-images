@@ -14,12 +14,16 @@ export const Modal = ({onClose, alt, largeImageURL}) =>{
         return () => {
           window.removeEventListener('keydown', handleKeydown);
         };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
       const handleKeydown = e => {
         if (e.code === 'Escape') {
            onClose();
     }}
+
+
+
 
     return (       
             
