@@ -19,13 +19,12 @@ const [totalImg, setTotalImg] = useState(null)
 const formSubmitHendle = data =>{   
   setQuery(data)
   setPage(1)
-  setImages([])
-  // this.setState(() => ({query: data, page: 1, images: [] }))     
+  setImages([]) 
 }
 
 const handleLoaderMore = () => {
   setPage(prevState => prevState + 1)
-  // this.setState(prevState => ({page: prevState.page + 1}))       
+    
 }
 
 useEffect(() => {
@@ -50,69 +49,7 @@ useEffect(() => {
   }
 }, [query, page]);
 
-// useEffect(()=>{
-//   if(query === '' ){
-//     setLoader(true)
-//   }
-//     // setLoader(true)
-//     // this.setState({ loader: true})
-      
-//     getImages(query, page)
-//    .then(({hits, totalHits}) => {          
-//     if(hits.length === 0){
-//       return toast.error('Not a valid request');
-//     }
-//     setImages(hits)
-//     setTotalImg(totalHits)
-//     // this.setState({ images: hits, totalImg: totalHits})})
-//    .catch(error => setError(error))
-//    .finally(() => setLoader(false));
-   
-// },[query, loader, error, images,page])})
 
-// useEffect(()=>{
-//   if(page > 1 ){
-//     setLoader(true)
-//     // this.setState({ loader: true})
-      
-//     getImages(query, page)
-//    .then(({hits}) => {          
-//     setImages(prevState => [...prevState, ...hits])
-//     // setImages(hits)
-//     // setTotalImg(totalHits)
-//     // this.setState({ images: hits, totalImg: totalHits})})
-//    .catch(error => setError(error))
-//    .finally(() => setLoader(false));
-//    return;
-// },[page])}})
-
-
-// componentDidUpdate(prevProps, prevState) {        
-//   if(this.state.query !== prevState.query ){
-//       this.setState({ loader: true})
-      
-//       getImages(this.state.query, this.state.page)
-//      .then(({hits, totalHits}) => {          
-//       if(hits.length === 0){
-//         return toast.error('Not a valid request');
-//       }
-//       this.setState({ images: hits, totalImg: totalHits})})
-//      .catch(error => this.setState({error}))
-//      .finally(() => this.setState({loader: false}));
-//      return;
-//   }
-
-
-//   if (prevState.query !== this.state.query || prevState.page !== this.state.page){
-//       this.setState({ loader: true})
-
-//       getImages(this.state.query, this.state.page)
-//       .then(({hits}) => {            
-//         this.setState({ images: [...prevState.images, ...hits]})})
-//       .catch(error => this.setState({error}))
-//       .finally(() => this.setState({loader: false}))                   
-//   }      
-// }  
   return (
     <AppStyled>
     

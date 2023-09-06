@@ -13,14 +13,12 @@ export const Searchbar = ({onSubmit}) => {
     }
     onSubmit(query);
     setQuery('')
-    // this.setState({
-    //   query: ''
-    // })
+
   }
 
   const handleChange = ({target: {value}}) =>{
     setQuery(value)
-    // this.setState({query: value})
+ 
   }
 
   return(
