@@ -9,18 +9,19 @@ export const Modal = ({onClose, alt, largeImageURL}) =>{
     }
 
     useEffect(() => {
+      const handleKeydown = e => {
+        if (e.code === 'Escape') {
+           onClose();
+    }}
+      
         window.addEventListener('keydown', handleKeydown);
     
         return () => {
           window.removeEventListener('keydown', handleKeydown);
         };
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);
+      
+      }, [onClose]);
 
-      const handleKeydown = e => {
-        if (e.code === 'Escape') {
-           onClose();
-    }}
 
 
 
