@@ -3,7 +3,6 @@ import { useState } from "react";
 import { toast } from "react-toastify"; 
 
 export const Searchbar = ({onSubmit}) => {
-
   const [query, setQuery] = useState('')
 
   const handleSubmit = (e) =>{
@@ -13,7 +12,6 @@ export const Searchbar = ({onSubmit}) => {
     }
     onSubmit(query);
     setQuery('')
-
   }
 
   const handleChange = ({target: {value}}) =>{
@@ -22,26 +20,25 @@ export const Searchbar = ({onSubmit}) => {
 
   return(
     <SearchBarStyled>
-        <header className="searchbar">
-            <SearchFormStyled
-             className="form" 
-            onSubmit={handleSubmit}
-             >
-            <SearchFormBtn type="submit" className="button">
-            <SearchFormBtnLable className="button-label">Search</SearchFormBtnLable>
-            </SearchFormBtn>
+      <header className="searchbar">
+        <SearchFormStyled
+          className="form" 
+          onSubmit={handleSubmit}
+        >
+        <SearchFormBtn type="submit" className="button">
+          <SearchFormBtnLable className="button-label">Search</SearchFormBtnLable>
+        </SearchFormBtn>
 
-            <SearchFormInput
-                className="input"
-                type="text"
-                name="query"                        
-               placeholder="Search images and photos"
-               value={query}
-               onChange={handleChange}
-            />                    
-            </SearchFormStyled>
-        </header>
-        
+        <SearchFormInput
+          className="input"
+          type="text"
+          name="query"                        
+          placeholder="Search images and photos"
+          value={query}
+          onChange={handleChange}
+        />                    
+        </SearchFormStyled>
+      </header>        
     </SearchBarStyled>
-)
+  )
 }
